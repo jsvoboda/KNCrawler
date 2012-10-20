@@ -1,0 +1,148 @@
+# encoding: UTF-8
+
+require "sqlite3"
+require "pry"
+
+@db = SQLite3::Database.new "Katastr.db"
+
+def sum_area(owner, table)
+	rs = @db.execute  "SELECT area FROM #{table} WHERE owner MATCH '#{owner}'" 
+
+	rs.reduce(0) {|sum, e| sum = sum + e[0].to_i}
+end
+
+def get_owners(table)
+	rs = @db.execute  "SELECT distinct(owner) FROM #{table}" 
+	owners = []
+	rs.each {|line| line[0].split("\n").each {|w| owners << w}}
+	# filtered_owners = owners.find_all {|w| w =~ /[A-Za-z]+/}
+
+	#remove fractions at the end and adresses and titles
+	owners_without_fractions = []
+	owners.each do |owner|
+		m = owner.match /(.+)\s\d{1,2}\/\d{1,2}/
+		if m then
+			owners_without_fractions << m[1]
+			# puts "AAA"
+			# owners.delete owner
+			# owners.push m[1]
+		else 
+			owners_without_fractions << owner
+		end
+
+		# m = owner.match /(.+? .+?)\s.*/
+		# if m then
+		# 	owners_without_fractions << m[1]
+		# end
+	end
+
+	owners_without_fractions
+end
+
+def get_areas_of_owners(owners, table)
+	list = []
+
+	owners.each do |owner|
+		tuple = []
+		tuple << owner
+		tuple << sum_area(owner, table)
+		list << tuple
+	end
+
+	list.uniq!
+end
+
+
+# owner_list.each do |entry|
+# 	line = "%-90s %10.3f" % [entry[0], entry[1].to_f/10000]
+# 	puts line
+# end
+
+def print_owners(table)
+	owner_list = get_areas_of_owners(get_owners(table),table).sort_by {|e| e[1]}
+
+	owner_list.reverse!
+
+	File.open("#{table}_owners.txt", "w") do |f|
+		case table
+		when "zelivsko"
+			f.puts "Katastr Želivsko"
+		when "horakova_lhota"
+			f.puts "Katastr Horákova Lhota"
+		end
+
+		f.puts ""
+
+		f.puts "%-90s %10s" % ["Vlastník", "ha"]
+
+		owner_list.each do |entry|
+			line = "%-90s %10.4f" % [entry[0], entry[1].to_f/10000]
+			f.puts line
+		end
+	end
+end
+
+def total_area_of_region(table)
+	rs = @db.execute  "SELECT area FROM #{table}" 
+
+	rs.reduce(0) {|sum, e| sum = sum + e[0].to_i}
+end
+
+def total_areas_of_lvs(table)
+	lvs = []
+
+	@db.execute("select distinct(lv_num) from #{table}").each do |entry|
+		lvs << entry[0]
+	end
+
+	list = []
+
+	lvs.each do |lv|
+		lv_rs = @db.execute "select distinct(owner) from #{table} where lv_num == '#{lv}'"
+		area_rs = @db.execute "select sum(area) from #{table} where lv_num == '#{lv}'"
+		entry = []
+		# entry << lv
+		entry << lv_rs[0][0]
+		entry << area_rs[0][0]
+		list << entry
+	end
+
+	sorted_list = list.sort_by{|e| e[1]}
+
+	sorted_list.reverse!
+
+	File.open("#{table}_lvs.txt", "w") do |f|
+		case table
+		when "zelivsko"
+			f.puts "Katastr Želivsko - LV"
+		when "horakova_lhota"
+			f.puts "Katastr Horákova Lhota - LV"
+		end
+
+		f.puts ""
+
+		# f.puts "%-90s %10s" % ["Vlastník", "ha"]
+
+		sorted_list.each do |entry|
+			line = "%s => %.4f ha" % [entry[0], entry[1].to_f/10000]
+			f.puts line
+			f.puts
+		end
+	end
+end
+
+# puts total_area_of_region("zelivsko") + total_area_of_region("horakova_lhota")
+
+# print_owners("horakova_lhota")
+
+puts total_areas_of_lvs("zelivsko")
+
+# puts split_rs.each do |line|
+# 	line.each do |word|
+# 		owners << word
+# 	end
+# end
+
+# rs.each do |row|
+#     puts row
+# end

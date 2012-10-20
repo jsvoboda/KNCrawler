@@ -1,0 +1,36 @@
+Katastr Horákova Lhota
+
+Vlastník                                                                                           ha
+Svoboda Jaromír Ing., CSc. Želivsko 33, 569 04                                                51.1013
+Dosedělová Marta Družstevní 866/12, Letovice, 679 61                                          37.1276
+Hořáková Štěpánka Horní Hynčina 128, Pohledy, 568 02                                          37.0659
+Dvořák Augustin Rychnov na Moravě 141, 569 34                                                 37.0076
+Šunková Alena Moravská Chrastová 220, Brněnec, 569 04                                         10.2659
+Králová Milada Jedlová 318, 569 91                                                             7.2732
+Krönerová Jarmila Sušice 123, Moravská Třebová, 571 01                                         5.0595
+Kaderka Bohumil Chrastavec 66, 569 04                                                          3.8470
+OBEC ŽELIVSKO Želivsko 29, 569 04                                                              3.6759
+Hájek Antonín Moravská Chrastová 79, Brněnec, 569 04                                           1.6315
+SJM Svoboda Jaromír Ing. CSc. a Svobodová Radoslava MUDr.                                      1.6315
+Svobodová Radoslava MUDr. Dusíkova 906/31, Brno, Lesná, 638 00                                 1.6315
+Gloc Miroslav Březina 117, 569 23                                                              0.9493
+Špaček Jaroslav Hodonínská 628/3, Brno, Komárov, 617 00                                        0.6300
+Mik Miroslav Svatováclavská 945, Uherské Hradiště, 686 01                                      0.4459
+Kubičík Milan Horákova Lhota 6, Želivsko, 569 04                                               0.3252
+Mlejnek Petr Ing. Božetěchova 2284/85, Brno, Královo Pole, 612 00                              0.1897
+Paroulek Milan Dimitrovova 1964/25, Svitavy, Předměstí, 568 02                                 0.1303
+Homolková Ludmila Hliníky 513, Velké Opatovice, 679 63                                         0.1297
+Jeřábek Petr Horákova Lhota 15, Želivsko, 569 04                                               0.1297
+Lebišová Alena Rumberk 18, Deštná, 679 61                                                      0.1297
+Jeřábek Patrik Želivsko 29, 569 04                                                             0.1297
+Jeřábková Andrea Želivsko 29, 569 04                                                           0.1297
+Krotký Jiří Znojemská 804, Hrušovany nad Jevišovkou, 671 67                                    0.1296
+Krotká Olga Znojemská 804, Hrušovany nad Jevišovkou, 671 67                                    0.1296
+SJM Krotký Jiří a Krotká Olga                                                                  0.1296
+Cupalová Regina náměstí Svobody 88, Modřice, 664 42                                            0.0477
+Urbančík Ctirad Kupkova 705/21, Brno, Lesná, 638 00                                            0.0414
+Urbančíková Ivana Kupkova 705/21, Brno, Lesná, 638 00                                          0.0414
+Schnirchová Marta Královopolské Vážany 40, Rousínov, 683 01                                    0.0215
+Konečný Igor Ing. Tomanova 226/2, Brno, Černá Pole (Brno-sever), 613 00                        0.0000
+Konečná Markéta MUDr. Tomanova 226/2, Brno, Černá Pole (Brno-sever), 613 00                    0.0000
+Mareček Jaroslav náměstí SNP 1125/17, Brno, Černá Pole (Brno-sever), 613 00                    0.0000
